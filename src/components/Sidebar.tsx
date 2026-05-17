@@ -15,9 +15,10 @@ import { PageName } from '../App';
 interface SidebarProps {
   currentPage: PageName;
   onNavigate: (page: PageName) => void;
+  teacherName: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate }) => {
+const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, teacherName }) => {
   const menuItems: { icon: typeof LayoutDashboard; label: string; page: PageName }[] = [
     { icon: LayoutDashboard, label: 'الرئيسية', page: 'dashboard' },
     { icon: Users, label: 'الصفوف', page: 'classes' },
@@ -61,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate }) => {
       <div className="p-4 border-t border-slate-100">
         <div className="bg-gradient-to-br from-primary-600 to-primary-700 p-4 rounded-2xl text-white hidden md:block">
           <p className="text-xs opacity-80 mb-1">المعلم الحالي</p>
-          <p className="font-bold">أحمد الطويشات</p>
+          <p className="font-bold">{teacherName}</p>
         </div>
       </div>
     </aside>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import ClassesPage from './pages/ClassesPage';
@@ -9,12 +9,20 @@ import ReportsPage from './pages/ReportsPage';
 import SettingsPage from './pages/SettingsPage';
 import { classService } from './services/classService';
 import { studentService } from './services/studentService';
+import { settingsService } from './services/settingsService';
+import { Settings } from './types';
 
 export type PageName = 'dashboard' | 'classes' | 'students' | 'points' | 'badges' | 'reports' | 'settings';
 
 const App: React.FC = () => {
   const [initialized, setInitialized] = useState(false);
   const [currentPage, setCurrentPage] = useState<PageName>('dashboard');
+  const [settings, setSettings] = useState<Settings>(settingsService.getSettings());
+
+  // Re-read settings whenever they might have changed
+  const refreshSettings = useCallback(() => {
+    setSettings(settingsService.getSettings());
+  }, []);
 
   useEffect(() => {
     const classes = classService.getClasses();
@@ -46,14 +54,14 @@ const App: React.FC = () => {
       case 'points': return <PointsPage />;
       case 'badges': return <BadgesPage />;
       case 'reports': return <ReportsPage />;
-      case 'settings': return <SettingsPage />;
+      case 'settings': return <SettingsPage onSettingsSaved={refreshSettings} />;
       default: return <Dashboard onNavigate={setCurrentPage} />;
     }
   };
 
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden" dir="rtl">
-      <Sidebar currentPage={currentPage} onNavigate={setCurrentPage} />
+      <Sidebar currentPage={currentPage} onNavigate={setCurrentPage} teacherName={settings.teacherName} />
       <main className="flex-1 overflow-y-auto relative">
         {renderPage()}
       </main>
