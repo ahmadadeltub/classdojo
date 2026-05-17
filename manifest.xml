@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xsi:type="TaskPaneApp">
+
+  <Id>357906d2-3760-4963-8835-f09c693a12a7</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Interactive Classroom</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+
+  <DisplayName DefaultValue="Interactive Classroom"/>
+  <Description DefaultValue="Classroom student points and behavior management add-in for teachers."/>
+
+  <IconUrl DefaultValue="https://localhost:3001/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3001/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://localhost:3001"/>
+
+  <AppDomains>
+    <AppDomain>https://localhost:3001</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Presentation"/>
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3001/index.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+</OfficeApp>

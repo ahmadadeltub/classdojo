@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+    xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+    xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+    xsi:type="TaskPaneApp">
+  <Id>357906d2-3760-4963-8835-f09c693a12a7</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Interactive Classroom</ProviderName>
+  <DefaultLocale>ar-SA</DefaultLocale>
+  <DisplayName DefaultValue="صفّي التفاعلي" />
+  <Description DefaultValue="نظام إدارة نقاط الطلاب والتحفيز داخل الصف" />
+  <IconUrl DefaultValue="https://localhost:3001/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3001/assets/icon-80.png" />
+  <SupportUrl DefaultValue="https://localhost:3001" />
+  <AppDomains>
+    <AppDomain>https://localhost:3001</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Presentation" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3001/index.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Presentation">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStartedTitle" />
+            <Description resid="GetStartedDescription" />
+            <LearnMoreUrl DefaultValue="https://localhost:3001" />
+          </GetStarted>
+          <FunctionFile resid="Commands.Url" />
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="InteractiveClassroom.Tab1">
+              <Label resid="TabLabel" />
+              <Group id="InteractiveClassroom.Group1">
+                <Label resid="GroupLabel" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16" />
+                  <bt:Image size="32" resid="Icon.32x32" />
+                  <bt:Image size="80" resid="Icon.80x80" />
+                </Icon>
+                <Control xsi:type="Button" id="InteractiveClassroom.TaskpaneButton">
+                  <Label resid="TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Label" />
+                    <Description resid="TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16" />
+                    <bt:Image size="32" resid="Icon.32x32" />
+                    <bt:Image size="80" resid="Icon.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>MyTaskPaneID</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3001/assets/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3001/assets/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3001/assets/icon-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3001/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3001/index.html" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStartedTitle" DefaultValue="صفّي التفاعلي جاهز!" />
+        <bt:String id="GroupLabel" DefaultValue="إدارة الصف" />
+        <bt:String id="TaskpaneButton.Label" DefaultValue="عرض لوحة التحكم" />
+        <bt:String id="TabLabel" DefaultValue="صفّي التفاعلي" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStartedDescription" DefaultValue="ابدأ بإدارة نقاط طلابك وتحفيزهم مباشرة من داخل PowerPoint." />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="افتح لوحة التحكم لإدارة الطلاب والنقاط." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

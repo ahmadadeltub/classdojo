@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-slate-50;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-xl transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-white border border-slate-200 hover:border-primary-300 text-slate-700 rounded-xl transition-all duration-200 flex items-center justify-center gap-2;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-danger-50 text-danger-600 hover:bg-danger-100 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 font-medium;
+  }
+
+  .stat-card {
+    @apply p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+}
+
+/* Custom scrollbar for taskpane */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
